@@ -30,7 +30,7 @@ class Model
      * @param string $reason
      * @param mixed $datas
      */
-    public static function add($id, $module, $action, $topic, $member_id, $reason = null, $datas = null)
+    public static function add($id, $module, $action, $topic, $member_id, $datas = null, $reason = null)
     {
         $model = new \Kotchasan\Model;
         $model->db()->insert($model->getTableName('logs'), [
