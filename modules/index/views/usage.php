@@ -135,19 +135,22 @@ class View extends \Gcms\View
                 ]
             ]
         ]);
-        if ($login['id'] == 1) {
-            // Super Admin
-            $table->actions = [
-                [
-                    'id' => 'action',
-                    'class' => 'ok',
-                    'text' => '{LNG_With selected}',
-                    'options' => [
-                        'delete' => '{LNG_Delete}'
-                    ]
-                ]
-            ];
-        }
+        /**
+         * ประวัติการใช้งานจะต้องไม่มีใครแก้ไขได้แม้จะเป็น SuperAdmin
+         */
+        // if ($login['id'] == 1) {
+        //     // Super Admin
+        //     $table->actions = [
+        //         [
+        //             'id' => 'action',
+        //             'class' => 'ok',
+        //             'text' => '{LNG_With selected}',
+        //             'options' => [
+        //                 'delete' => '{LNG_Delete}'
+        //             ]
+        //         ]
+        //     ];
+        // }
         // save cookie
         setcookie('usage_perPage', $table->perPage, time() + 2592000, '/', HOST, HTTPS, true);
         setcookie('usage_sort', $table->sort, time() + 2592000, '/', HOST, HTTPS, true);
