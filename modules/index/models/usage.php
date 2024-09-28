@@ -47,7 +47,7 @@ class Model extends \Kotchasan\Model
             $where[] = ['L.create_date', '<=', $params['to'].' 23:59:59'];
         }
         return static::createQuery()
-            ->select('L.id', 'L.create_date', 'L.topic', 'U.name', 'L.module', 'L.action')
+            ->select('L.id', 'L.create_date', 'L.topic', 'U.name', 'L.module', 'L.action', 'L.datas')
             ->from('logs L')
             ->join('user U', 'LEFT', ['U.id', 'L.member_id'])
             ->where($where);

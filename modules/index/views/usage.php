@@ -117,6 +117,10 @@ class View extends \Gcms\View
                     'text' => '{LNG_Action}',
                     'class' => 'center',
                     'sort' => 'action'
+                ],
+                'datas' => [
+                    'text' => 'Datas',
+                    'class' => 'center'
                 ]
             ],
             /* รูปแบบการแสดงผลของคอลัมน์ (tbody) */
