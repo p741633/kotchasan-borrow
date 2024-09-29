@@ -418,5 +418,11 @@ return array(
   'Your new password is' => 'รหัสผ่านใหม่ของคุณคือ',
   'Your OTP code is :otp. Please enter this code on the website to confirm your phone number.' => 'รหัส OTP ของคุณคือ :otp กรุณาป้อนรหัสนี้บนเว็บไซต์เพื่อยืนยันหมายเลขโทรศัพท์ของคุณ',
   'Your registration information' => 'ข้อมูลการลงทะเบียนของคุณ',
-  'Zipcode' => 'รหัสไปรษณีย์'
+  'Zipcode' => 'รหัสไปรษณีย์',
+  'Borrower employee id' => 'รหัสพนักงานผู้ยืม',
+  'Borrower department id' => 'รหัสหน่วยงานผู้ยืม',
+  'Borrower first name' => 'ชื่อผู้ยืม',
+  'Borrower last name' => 'นามสกุลผู้ยืม',
+  'Borrower phone' => 'เบอร์โทรศัพท์ผู้ยืม',
+  'Borrower remark' => 'หมายเหตุการยืม'
 );

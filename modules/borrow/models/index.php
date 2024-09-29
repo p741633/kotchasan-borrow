@@ -44,7 +44,13 @@ class Model extends \Kotchasan\Model
                 'borrow_no' => '',
                 'transaction_date' => date('Y-m-d'),
                 'borrow_date' => date('Y-m-d'),
-                'return_date' => null
+                'return_date' => null,
+                'borrower_emp_id' => null,
+                'borrower_dept_id' => null,
+                'borrower_fname' => null,
+                'borrower_lname' => null,
+                'borrower_phone' => null,
+                'borrower_remark' => null
             ];
         } else {
             // แก้ไข อ่านรายการที่เลือก
@@ -112,7 +118,13 @@ class Model extends \Kotchasan\Model
                         'borrow_no' => $request->post('borrow_no')->topic(),
                         'transaction_date' => $request->post('transaction_date')->date(),
                         'borrow_date' => $request->post('borrow_date')->date(),
-                        'return_date' => $request->post('return_date')->date()
+                        'return_date' => $request->post('return_date')->date(),
+                        'borrower_emp_id' => $request->post('borrower_emp_id')->topic(),
+                        'borrower_dept_id' => strtoupper($request->post('borrower_dept_id')->topic()),
+                        'borrower_fname' => $request->post('borrower_fname')->topic(),
+                        'borrower_lname' => $request->post('borrower_lname')->topic(),
+                        'borrower_phone' => $request->post('borrower_phone')->topic(),
+                        'borrower_remark' => $request->post('borrower_remark')->topic(),
                     ];
                     // ตรวจสอบรายการที่เลือก
                     $borrow = self::get($request->post('borrow_id')->toInt(), $login);

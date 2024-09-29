@@ -22,6 +22,12 @@ CREATE TABLE `{prefix}_borrow` (
   `borrower_id` int(11) NOT NULL COMMENT 'ผู้เบิก',
   `borrow_date` date NOT NULL COMMENT 'วันที่ต้องการเบิก',
   `return_date` date DEFAULT NULL COMMENT 'กำหนดคืน'
+  `borrower_emp_id` varchar(6) DEFAULT NULL COMMENT 'รหัสพนักงานผู้ยืม'
+  `borrower_dept_id` varchar(4) DEFAULT NULL COMMENT 'รหัสหน่วยงานผู้ยืม'
+  `borrower_fname` varchar(50) DEFAULT NULL COMMENT 'ชื่อผู้ยืม'
+  `borrower_lname` varchar(50) DEFAULT NULL COMMENT 'นามสกุลผู้ยืม'
+  `borrower_phone` varchar(15) DEFAULT NULL COMMENT 'เบอร์โทรศัพท์ผู้ยืม'
+  `borrower_remark` varchar(255) DEFAULT NULL COMMENT 'หมายเหตุการยืม'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

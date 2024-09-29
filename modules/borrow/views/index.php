@@ -82,6 +82,68 @@ class View extends \Gcms\View
             'value' => $index->return_date
         ]);
         $groups = $fieldset->add('groups');
+        // borrower_emp_id
+        $groups->add('number', [
+            'id' => 'borrower_emp_id',
+            'labelClass' => 'g-input icon-profile',
+            'itemClass' => 'width50',
+            'label' => '{LNG_Borrower employee id}',
+            'value' => $index->borrower_emp_id,
+            'maxlength' => 6,
+            'required'
+        ]);
+        // borrower_dept_id
+        $groups->add('text', [
+            'id' => 'borrower_dept_id',
+            'labelClass' => 'g-input icon-profile',
+            'itemClass' => 'width50',
+            'label' => '{LNG_Borrower department id}',
+            'value' => $index->borrower_dept_id,
+            'maxlength' => 4,
+            'required'
+        ]);
+        $groups = $fieldset->add('groups');
+        // borrower_fname
+        $groups->add('text', [
+            'id' => 'borrower_fname',
+            'labelClass' => 'g-input icon-personnel',
+            'itemClass' => 'width50',
+            'label' => '{LNG_Borrower first name}',
+            'value' => $index->borrower_fname,
+            'maxlength' => 50,
+            'required'
+        ]);
+        // borrower_lname
+        $groups->add('text', [
+            'id' => 'borrower_lname',
+            'labelClass' => 'g-input',
+            'itemClass' => 'width50',
+            'label' => '{LNG_Borrower last name}',
+            'value' => $index->borrower_lname,
+            'maxlength' => 50,
+            'required'
+        ]);
+        $groups = $fieldset->add('groups');
+        // borrower_phone
+        $groups->add('number', [
+            'id' => 'borrower_phone',
+            'labelClass' => 'g-input icon-phone',
+            'itemClass' => 'width20',
+            'label' => '{LNG_Borrower phone}',
+            'value' => $index->borrower_phone,
+            'maxlength' => 15,
+            'required'
+        ]);
+        // borrower_remark
+        $groups->add('text', [
+            'id' => 'borrower_remark',
+            'labelClass' => 'g-input icon-comments',
+            'itemClass' => 'width80',
+            'label' => '{LNG_Borrower remark}',
+            'value' => $index->borrower_remark,
+            'maxlength' => 255,
+        ]);
+        $groups = $fieldset->add('groups');
         // inventory_quantity
         $groups->add('number', [
             'id' => 'inventory_quantity',
