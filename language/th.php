@@ -39,7 +39,7 @@ return array(
     3 => 'คืนแล้ว'
   ),
   'Borrowed date' => 'วันที่ยืม',
-  'Borrower' => 'ผู้ยืม',
+  'Borrower' => 'ผู้ทำรายการยืม',
   'Browse file' => 'เลือกไฟล์',
   'Browse image uploaded, type :type' => 'เลือกรูปภาพอัปโหลด ชนิด :type',
   'Can be approve' => 'สามารถอนุมัติได้',
