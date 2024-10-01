@@ -132,6 +132,8 @@ class Model extends \Kotchasan\Model
                         // ชื่อตาราง
                         $table_borrow = $this->getTableName('borrow');
                         $table_borrow_items = $this->getTableName('borrow_items');
+                        $table_inventory = $this->getTableName('inventory');
+                        $table_inventory_items = $this->getTableName('inventory_items');
                         // Database
                         $db = $this->db();
                         // พัสดุที่เลือก
@@ -142,6 +144,8 @@ class Model extends \Kotchasan\Model
                             'unit' => $request->post('unit', [])->topic()
                         ];
                         $items = [];
+                        $items_stock = [];
+                        /** ทำรายการแล้วอนุมัติและตัดสต๊อค */
                         foreach ($datas['quantity'] as $key => $value) {
                             if ($value > 0 && $datas['product_no'][$key] != '') {
                                 $items[$datas['product_no'][$key]] = [
@@ -149,8 +153,27 @@ class Model extends \Kotchasan\Model
                                     'topic' => $datas['topic'][$key],
                                     'product_no' => $datas['product_no'][$key],
                                     'unit' => $datas['unit'][$key],
-                                    'status' => 0
+                                    'status' => 2, // 0 ทำรายการ, 2 อนุม้ติ
+                                    'amount' => $value // จำนวนส่งมอบ
                                 ];
+
+                                $items_stock[$datas['product_no'][$key]] = [
+                                    'product_no' => $datas['product_no'][$key],
+                                    'stock' => $value // จำนวนที่จะตัดสต็อค
+                                ];
+
+                                // ดึงข้อมูลสต๊อคปัจจุบัน
+                                $stock = $this->db()->customQuery("select V.stock, V.unit, I.topic
+                                                                    from {$table_inventory_items} V
+                                                                    INNER JOIN {$table_inventory} I ON I.id = V.inventory_id
+                                                                    where V.product_no = '{$datas['product_no'][$key]}'
+                                                                    limit 1");
+
+                                // ตรวจสอบสต๊อค
+                                if ($value > $stock[0]->stock) {
+                                    // สต๊อคไม่เพียงพอ
+                                    $ret['alert'] = Language::replace('There is not enough :name (remaining :stock :unit)', [':name' => $stock[0]->topic, ':stock' => $stock[0]->stock, ':unit' => $stock[0]->unit]);
+                                }
                             }
                         }
                         if (empty($items)) {
@@ -201,6 +224,12 @@ class Model extends \Kotchasan\Model
                                     $db->insert($table_borrow_items, $save);
                                     $n++;
                                 }
+                                // ตัดสต็อค
+                                foreach ($items_stock as $save) {
+                                    $this->db()->customQuery("UPDATE {$table_inventory_items} 
+                                    SET stock = stock - {$save['stock']} 
+                                    WHERE product_no = '{$save['product_no']}'");
+                                }
                                 if ($borrow->id == 0) {
                                     // ส่งอีเมลไปยังผู้ที่เกี่ยวข้อง
                                     $ret['alert'] = \Borrow\Email\Model::send($order);
@@ -212,8 +241,8 @@ class Model extends \Kotchasan\Model
                                 }
                                 // log
                                 \Index\Log\Model::add($order['id'], 'borrow', 'Save', $title, $login['id'], $order);
-                                // คืนค่า
-                                $ret['location'] = $request->getUri()->postBack('index.php', ['module' => 'borrow-setup', 'type' => 0, 'id' => null]);
+                                // คืนค่า redirect ไปที่หน้ารายงาน เมนูอนุมัติ
+                                $ret['location'] = $request->getUri()->postBack('index.php', ['module' => 'borrow-report', 'status' => 2, 'id' => null]);
                                 // เคลียร์
                                 $request->removeToken();
                             }
