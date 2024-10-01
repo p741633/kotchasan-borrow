@@ -49,7 +49,12 @@ class Controller extends \Kotchasan\KBase
                 'text' => '{LNG_Add Borrow}',
                 'url' => 'index.php?module=borrow'
             ];
-            $menu->addTopLvlMenu('borrow', '{LNG_Borrow} &amp; {LNG_Return}', null, $submenus, 'member');
+
+            /** แสดงรายงานสำหรับสมาชิก */
+            // $menu->addTopLvlMenu('borrow', '{LNG_Borrow} &amp; {LNG_Return}', null, $submenus, 'member');
+            /** แสดงเฉพาะการทำรายการยืม */
+            $menu->addTopLvlMenu('borrow', '{LNG_Add Borrow}', 'index.php?module=borrow', null, 'member');
+
             $menu->addTopLvlMenu('inventory', '{LNG_Inventory}', 'index.php?module=borrow-inventory', null, 'borrow');
             // สามารถอนุมัติได้
             if (Login::checkPermission($login, 'can_approve_borrow')) {
