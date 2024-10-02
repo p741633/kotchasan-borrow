@@ -109,7 +109,7 @@ class Model extends \Kotchasan\Model
                                         $ret['alert'] = Language::get('The amount returned is greater than the amount delivered');
                                     } else {
                                         // ตัดสต๊อค
-                                        $save = ['amount' => $index->amount - $amount, 'status' => $status];
+                                        $save = ['amount' => $index->amount - $amount, 'status' => $status, 'returned_date' => date('Y-m-d')];
                                         // อัปเดตรายการ
                                         $stock = ['stock' => $index->stock + $amount];
                                     }
