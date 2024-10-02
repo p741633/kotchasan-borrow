@@ -51,7 +51,8 @@ class View extends \Gcms\View
             'token' => true
         ]);
         $form->add('header', [
-            'innerHTML' => '<h3 class='.$icons[$action].'>'.$actions[$action].'</h3>'
+            // 'innerHTML' => '<h3 class='.$icons[$action].'>'.$actions[$action].</h3>'
+            'innerHTML' => '<h3 class="icon-inbox">คืนของ</h3>'
         ]);
         $fieldset = $form->add('fieldset');
         $fieldset->add('div', [
@@ -73,8 +74,8 @@ class View extends \Gcms\View
             'labelClass' => 'g-input icon-star0',
             'itemClass' => 'item',
             'label' => '{LNG_Status}',
-            'options' => Language::get('BORROW_STATUS'),
-            'value' => $index->status
+            'options' => Language::get('RETURN_STATUS'),
+            'value' => 0
         ]);
         $fieldset = $form->add('fieldset', [
             'class' => 'submit right'
