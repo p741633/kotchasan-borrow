@@ -131,7 +131,9 @@ class Model
                 ],
                 'report' => [
                     'text' => '{LNG_Report}',
-                    'url' => 'index.php?module=report',
+                    /** ไปที่หน้ารายการยืมเลย */
+                    // 'url' => 'index.php?module=report',
+                    'url' => 'index.php?module=borrow-report&status=2',
                     'submenus' => []
                 ],
                 'settings' => [
