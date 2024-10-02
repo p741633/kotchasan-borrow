@@ -87,6 +87,26 @@ class View extends \Gcms\View
                     'text' => '{LNG_Borrower}',
                     'sort' => 'borrower_id',
                     'class' => 'center'
+                ],
+                'borrower_emp_id' => [
+                    'text' => '{LNG_Borrower employee id}',
+                    'sort' => 'borrower_emp_id',
+                    'class' => 'center'
+                ],
+                'borrower_fname' => [
+                    'text' => '{LNG_Borrower first name}',
+                    'sort' => 'borrower_fname',
+                    'class' => 'center'
+                ],
+                'borrower_lname' => [
+                    'text' => '{LNG_Borrower last name}',
+                    'sort' => 'borrower_lname',
+                    'class' => 'center'
+                ],
+                'borrower_phone' => [
+                    'text' => '{LNG_Borrower phone}',
+                    'sort' => 'borrower_phone',
+                    'class' => 'center'
                 ]
             ],
             /* รูปแบบการแสดงผลของคอลัมน์ (tbody) */
