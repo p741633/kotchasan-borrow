@@ -78,9 +78,9 @@ class View extends \Gcms\View
                     'sort' => 'borrow_date',
                     'class' => 'center'
                 ],
-                'return_date' => [
-                    'text' => '{LNG_Date of return}',
-                    'sort' => 'return_date',
+                'returned_date' => [
+                    'text' => '{LNG_Date of returned}',
+                    'sort' => 'returned_date',
                     'class' => 'center'
                 ],
                 'borrower' => [
@@ -171,7 +171,7 @@ class View extends \Gcms\View
         $item['topic'] = '<a href="index.php?module=borrow-report&amp;status='.$item['status'].'&amp;search='.$item['product_no'].'">'.$item['topic'].'</a>';
         $item['borrower'] = '<a href="index.php?module=borrow-report&amp;status='.$item['status'].'&amp;borrower_id='.$item['borrower_id'].'" class="status'.$item['Ustatus'].'">'.$item['borrower'].'</a>';
         $item['borrow_date'] = Date::format($item['borrow_date'], 'd M Y');
-        $item['return_date'] = Date::format($item['return_date'], 'd M Y');
+        $item['returned_date'] = Date::format($item['returned_date'], 'd M Y');
         if ($item['status'] == 2 && $item['due'] <= 0 && $item['return_date'] != '') {
             $item['return_date'] = '<span class="term3">'.$item['return_date'].'</span>';
         }
