@@ -73,6 +73,7 @@ return array(
   'Data controller' => 'ผู้ควบคุม/ใช้ ข้อมูล',
   'Date' => 'วันที่',
   'Date of return' => 'กำหนดคืน',
+  'Date of returned' => 'วันที่คืน',
   'DATE_FORMAT' => 'd M Y เวลา H:i น.',
   'DATE_LONG' => array(
     0 => 'อาทิตย์',
