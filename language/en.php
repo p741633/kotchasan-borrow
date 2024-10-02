@@ -109,5 +109,8 @@ return array(
     'fullwidth' => 'Extra wide'
   ),
   'TIME_FORMAT' => 'H:i',
-  'YEAR_OFFSET' => 0
+  'YEAR_OFFSET' => 0,
+  'RETURN_STATUS' => array(
+    0 => 'Returned'
+  ),
 );
