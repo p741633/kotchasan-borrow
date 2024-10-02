@@ -76,6 +76,8 @@ class View extends \Gcms\View
             'value' => $index->borrow_no,
             'readonly' => true
         ]);
+        
+        $groups = $fieldset->add('groups');
         // transaction_date
         $groups->add('date', [
             'id' => 'transaction_date',
@@ -85,7 +87,6 @@ class View extends \Gcms\View
             'value' => $index->transaction_date,
             'readonly' => true
         ]);
-        $groups = $fieldset->add('groups');
         // borrow_date
         $groups->add('date', [
             'id' => 'borrow_date',
@@ -96,13 +97,13 @@ class View extends \Gcms\View
             'readonly' => true
         ]);
         // return_date
-        $groups->add('date', [
-            'id' => 'return_date',
-            'labelClass' => 'g-input icon-calendar',
-            'itemClass' => 'width50',
-            'label' => '{LNG_Date of return}',
-            'value' => $index->return_date
-        ]);
+        // $groups->add('date', [
+        //     'id' => 'return_date',
+        //     'labelClass' => 'g-input icon-calendar',
+        //     'itemClass' => 'width50',
+        //     'label' => '{LNG_Date of return}',
+        //     'value' => $index->return_date
+        // ]);
         $groups = $fieldset->add('groups');
         // borrower_emp_id
         $groups->add('number', [
