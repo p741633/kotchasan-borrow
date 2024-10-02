@@ -40,9 +40,12 @@ class Model extends \Kotchasan\Model
             $where[] = ['W.borrower_id', $params['borrower_id']];
         }
         $query = static::createQuery()
-            ->select(Sql::CONCAT(['S.borrow_id', '_', 'S.id'], 'id'), 'W.borrow_no', 'S.product_no', 'S.topic', 'I.stock', 'S.num_requests', 'W.borrow_date',
+            // ->select(Sql::CONCAT(['S.borrow_id', '_', 'S.id'], 'id'), 'W.borrow_no', 'S.product_no', 'S.topic', 'I.stock', 'S.num_requests', 'W.borrow_date',
+            //     'W.return_date', 'U.name borrower', 'U.status Ustatus', 'W.borrower_id', 'S.amount', 'V.count_stock',
+            //     Sql::DATEDIFF('W.return_date', date('Y-m-d'), 'due'), 'S.status')
+            ->select(Sql::CONCAT(['S.borrow_id', '_', 'S.id'], 'id'), 'W.borrow_no', 'S.product_no', 'S.topic', 'S.num_requests', 'W.borrow_date',
                 'W.return_date', 'U.name borrower', 'U.status Ustatus', 'W.borrower_id', 'S.amount', 'V.count_stock',
-                Sql::DATEDIFF('W.return_date', date('Y-m-d'), 'due'), 'S.status')
+                Sql::DATEDIFF('W.return_date', date('Y-m-d'), 'due'), 'S.status', 'W.borrower_emp_id', 'W.borrower_fname', 'W.borrower_lname', 'W.borrower_phone')
             ->from('borrow W')
             ->join('borrow_items S', 'INNER', ['S.borrow_id', 'W.id'])
             ->join('inventory_items I', 'LEFT', ['I.product_no', 'S.product_no'])
