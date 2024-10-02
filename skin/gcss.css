@@ -4809,3 +4809,11 @@ td.buttons .button:last-child {
     flex: 0 0 100%;
   }
 }
+/* Custom CSS */
+.date-readonly div.input-gcalendar.input-select.readonly {
+  background-color: #eeeeee;
+}
+
+.number-readonly .ginput {
+  background-color: #eeeeee;
+}
