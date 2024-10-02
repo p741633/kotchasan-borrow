@@ -55,16 +55,16 @@ class View extends \Gcms\View
             'value' => $index->borrow_no,
             'readonly' => true
         ]);
+        $groups = $fieldset->add('groups');
         // transaction_date
         $groups->add('date', [
             'id' => 'transaction_date',
             'labelClass' => 'g-input icon-calendar',
-            'itemClass' => 'width50',
+            'itemClass' => 'width50 date-readonly',
             'label' => '{LNG_Transaction date}',
             'value' => $index->transaction_date,
             'readonly' => true
         ]);
-        $groups = $fieldset->add('groups');
         // borrow_date
         $groups->add('date', [
             'id' => 'borrow_date',
@@ -74,13 +74,13 @@ class View extends \Gcms\View
             'value' => $index->borrow_date
         ]);
         // return_date
-        $groups->add('date', [
-            'id' => 'return_date',
-            'labelClass' => 'g-input icon-calendar',
-            'itemClass' => 'width50',
-            'label' => '{LNG_Date of return}',
-            'value' => $index->return_date
-        ]);
+        // $groups->add('date', [
+        //     'id' => 'return_date',
+        //     'labelClass' => 'g-input icon-calendar',
+        //     'itemClass' => 'width50',
+        //     'label' => '{LNG_Date of return}',
+        //     'value' => $index->return_date
+        // ]);
         $groups = $fieldset->add('groups');
         // borrower_emp_id
         $groups->add('number', [
@@ -90,7 +90,7 @@ class View extends \Gcms\View
             'label' => '{LNG_Borrower employee id}',
             'value' => $index->borrower_emp_id,
             'maxlength' => 6,
-            'required'
+            'required' => true
         ]);
         // borrower_dept_id
         $groups->add('text', [
@@ -100,7 +100,7 @@ class View extends \Gcms\View
             'label' => '{LNG_Borrower department id}',
             'value' => $index->borrower_dept_id,
             'maxlength' => 4,
-            'required'
+            'required' => true
         ]);
         $groups = $fieldset->add('groups');
         // borrower_fname
@@ -111,7 +111,7 @@ class View extends \Gcms\View
             'label' => '{LNG_Borrower first name}',
             'value' => $index->borrower_fname,
             'maxlength' => 50,
-            'required'
+            'required' => true
         ]);
         // borrower_lname
         $groups->add('text', [
@@ -121,7 +121,7 @@ class View extends \Gcms\View
             'label' => '{LNG_Borrower last name}',
             'value' => $index->borrower_lname,
             'maxlength' => 50,
-            'required'
+            'required' => true
         ]);
         $groups = $fieldset->add('groups');
         // borrower_phone
@@ -132,7 +132,7 @@ class View extends \Gcms\View
             'label' => '{LNG_Borrower phone}',
             'value' => $index->borrower_phone,
             'maxlength' => 15,
-            'required'
+            'required' => true
         ]);
         // borrower_remark
         $groups->add('text', [
