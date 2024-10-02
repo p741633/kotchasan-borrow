@@ -44,7 +44,8 @@ CREATE TABLE `{prefix}_borrow_items` (
   `amount` int(11) NOT NULL DEFAULT 0,
   `status` tinyint(4) NOT NULL,
   `unit` varchar(50) DEFAULT NULL,
-  `product_no` varchar(150) DEFAULT NULL
+  `product_no` varchar(150) DEFAULT NULL,
+  `returned_date` DEFAULT NULL COMMENT 'กำหนดคืน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
