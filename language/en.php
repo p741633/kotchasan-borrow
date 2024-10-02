@@ -8,7 +8,7 @@ return array(
   'BORROW_STATUS' => array(
     0 => 'Pending',
     1 => 'Not allowed',
-    2 => 'Approve',
+    2 => 'Borrowed',
     3 => 'Returned'
   ),
   'DATE_FORMAT' => 'd M Y, H:i',
