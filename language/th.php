@@ -427,6 +427,6 @@ return array(
   'Borrower phone' => 'เบอร์โทรศัพท์ผู้ยืม',
   'Borrower remark' => 'หมายเหตุการยืม',
   'RETURN_STATUS' => array(
-    0 => 'คืนแล้ว'
+    3 => 'คืนแล้ว'
   ),
 );
