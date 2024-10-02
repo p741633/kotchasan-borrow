@@ -59,9 +59,13 @@ class Controller extends \Kotchasan\KBase
             // สามารถอนุมัติได้
             if (Login::checkPermission($login, 'can_approve_borrow')) {
                 foreach (Language::get('BORROW_STATUS') as $type => $text) {
-                    $menu->add('report', $text, 'index.php?module=borrow-report&amp;status='.$type, null, 'borrow0'.$type);
+                    // แสดงเฉพาะรายการยืม (2) และ รายการคืน (3)
+                    if ($type >= 2 && $type <= 3) {
+                        $menu->add('report', $text, 'index.php?module=borrow-report&amp;status='.$type, null, 'borrow0'.$type);
+                    }
                 }
-                $menu->add('report', '{LNG_Un-Returned items}', 'index.php?module=borrow-report&amp;status=2&amp;due=1', null, 'borrow12');
+                // รายการครบกำหนดคืน (ยกเลิก)
+                // $menu->add('report', '{LNG_Un-Returned items}', 'index.php?module=borrow-report&amp;status=2&amp;due=1', null, 'borrow12');
             }
             if (Login::checkPermission($login, 'can_config')) {
                 $menu->add('settings', '{LNG_Settings} {LNG_Borrow} &amp; {LNG_Return}', 'index.php?module=borrow-settings', null, 'borrow');
