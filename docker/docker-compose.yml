@@ -1,0 +1,12 @@
+services:
+  e-borrow:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: e-borrow
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./kotchasan-borrow:/var/www/html
+    user: www-data
