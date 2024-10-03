@@ -166,8 +166,10 @@ class Model extends \Kotchasan\Model
                                 $stock = $this->db()->customQuery("select V.stock, V.unit, I.topic
                                                                     from {$table_inventory_items} V
                                                                     INNER JOIN {$table_inventory} I ON I.id = V.inventory_id
-                                                                    where V.product_no = '{$datas['product_no'][$key]}'
-                                                                    limit 1");
+                                                                    where V.product_no = :product_no
+                                                                    limit 1", 
+                                                                    false, 
+                                                                    array(':product_no' => $datas['product_no'][$key]));
 
                                 // ตรวจสอบสต๊อค
                                 if ($value > $stock[0]->stock) {
@@ -227,8 +229,10 @@ class Model extends \Kotchasan\Model
                                 // ตัดสต็อค
                                 foreach ($items_stock as $save) {
                                     $this->db()->customQuery("UPDATE {$table_inventory_items} 
-                                    SET stock = stock - {$save['stock']} 
-                                    WHERE product_no = '{$save['product_no']}'");
+                                    SET stock = stock - :stock 
+                                    WHERE product_no = :product_no", 
+                                    false, 
+                                    array(':stock' => $save['stock'], ':product_no' => $save['product_no']));
                                 }
                                 if ($borrow->id == 0) {
                                     // ส่งอีเมลไปยังผู้ที่เกี่ยวข้อง
