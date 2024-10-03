@@ -88,6 +88,7 @@ class View extends \Gcms\View
             'labelClass' => 'g-input icon-profile',
             'itemClass' => 'width50',
             'label' => '{LNG_Borrower employee id}',
+            'placeholder' => '{LNG_e.g. 103320 (required)}',
             'value' => $index->borrower_emp_id,
             'maxlength' => 6,
             'required' => true
@@ -98,8 +99,10 @@ class View extends \Gcms\View
             'labelClass' => 'g-input icon-profile',
             'itemClass' => 'width50',
             'label' => '{LNG_Borrower department id}',
+            'placeholder' => '{LNG_e.g. AZA2 (required)}',
             'value' => $index->borrower_dept_id,
             'maxlength' => 4,
+            'minlength' => 4,
             'required' => true
         ]);
         $groups = $fieldset->add('groups');
@@ -109,6 +112,7 @@ class View extends \Gcms\View
             'labelClass' => 'g-input icon-personnel',
             'itemClass' => 'width50',
             'label' => '{LNG_Borrower first name}',
+            'placeholder' => '{LNG_e.g. John (required)}',
             'value' => $index->borrower_fname,
             'maxlength' => 50,
             'required' => true
@@ -119,27 +123,31 @@ class View extends \Gcms\View
             'labelClass' => 'g-input',
             'itemClass' => 'width50',
             'label' => '{LNG_Borrower last name}',
+            'placeholder' => '{LNG_e.g. Wick (required)}',
             'value' => $index->borrower_lname,
             'maxlength' => 50,
             'required' => true
         ]);
         $groups = $fieldset->add('groups');
         // borrower_phone
-        $groups->add('number', [
+        $groups->add('text', [
             'id' => 'borrower_phone',
             'labelClass' => 'g-input icon-phone',
-            'itemClass' => 'width20',
+            'itemClass' => 'width30',
             'label' => '{LNG_Borrower phone}',
+            'placeholder' => '{LNG_e.g. 8259 (required)}',
             'value' => $index->borrower_phone,
             'maxlength' => 15,
+            'minlength' => 4,
             'required' => true
         ]);
         // borrower_remark
         $groups->add('text', [
             'id' => 'borrower_remark',
             'labelClass' => 'g-input icon-comments',
-            'itemClass' => 'width80',
+            'itemClass' => 'width70',
             'label' => '{LNG_Borrower remark}',
+            'placeholder' => '{LNG_e.g. Borrowing for remote work}',
             'value' => $index->borrower_remark,
             'maxlength' => 255,
         ]);

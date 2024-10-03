@@ -116,7 +116,7 @@ class Model extends \Kotchasan\Model
                         $_SESSION['login'] = $save;
                         // คืนค่า
                         $ret['isMember'] = 1;
-                        $ret['alert'] = Language::replace('Welcome %s, login complete', $save['name']);
+                        // $ret['alert'] = Language::replace('Welcome %s, login complete', $save['name']);
                     } else {
                         // ส่งข้อความแจ้งเตือนการสมัครสมาชิกของ user
                         $ret['alert'] = \Index\Email\Model::sendApprove();
