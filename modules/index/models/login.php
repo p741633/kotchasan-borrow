@@ -39,7 +39,7 @@ class Model extends \Kotchasan\KBase
             $ret = [];
             if ($login) {
                 // Login success
-                $ret['alert'] = Language::replace('Welcome %s, login complete', $login['name']);
+                // $ret['alert'] = Language::replace('Welcome %s, login complete', $login['name']);
                 $ret['url'] = $request->post('login_action')->url();
                 // เคลียร์
                 $request->removeToken();
