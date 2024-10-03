@@ -36,13 +36,14 @@ class Model extends \Kotchasan\Model
     {
         return static::createQuery()
             ->from('borrow_items S')
+            ->join('borrow B', 'INNER', ['B.id', 'S.borrow_id'])
             ->join('inventory_items I', 'INNER', ['I.product_no', 'S.product_no'])
             ->join('inventory V', 'INNER', ['V.id', 'I.inventory_id'])
             ->where([
                 ['S.borrow_id', $borrow_id],
                 ['S.id', $id]
             ])
-            ->first('S.borrow_id', 'S.id', 'S.product_no', 'S.topic', 'S.amount', 'S.num_requests', 'S.status', 'I.stock', 'S.unit', 'V.count_stock');
+            ->first('S.borrow_id', 'S.id', 'S.product_no', 'S.topic', 'S.amount', 'S.num_requests', 'S.status', 'I.stock', 'S.unit', 'V.count_stock', 'B.borrow_no');
     }
 
     /**
@@ -134,7 +135,7 @@ class Model extends \Kotchasan\Model
                                     $ret['amount_'.$index->id] = $save['amount'];
                                 }
                                 // log
-                                \Index\Log\Model::add($index->borrow_id, 'borrow', 'Status', $index->topic.' '.$ret['status_'.$index->id], $login['id']);
+                                \Index\Log\Model::add($index->borrow_id, 'borrow', 'Status', $index->topic.' '.$ret['status_'.$index->id], $login['id'], $index->borrow_no);
                             }
                             // คืนค่า
                             $ret['modal'] = 'close';

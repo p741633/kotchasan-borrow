@@ -244,7 +244,7 @@ class Model extends \Kotchasan\Model
                                     $title = '{LNG_Borrow} &amp; {LNG_Return} {LNG_Edit}';
                                 }
                                 // log
-                                \Index\Log\Model::add($order['id'], 'borrow', 'Save', $title, $login['id'], $order);
+                                \Index\Log\Model::add($order['id'], 'borrow', 'Save', $title, $login['id'], $order['borrow_no']);
                                 // คืนค่า redirect ไปที่หน้ารายงาน เมนูอนุมัติ
                                 $ret['location'] = $request->getUri()->postBack('index.php', ['module' => 'borrow-report', 'status' => 2, 'id' => null]);
                                 // เคลียร์
