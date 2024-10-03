@@ -48,7 +48,7 @@ class View extends \Gcms\View
             /* ฟังก์ชั่นจัดรูปแบบการแสดงผลแถวของตาราง */
             'onRow' => [$this, 'onRow'],
             /* คอลัมน์ที่ไม่ต้องแสดงผล */
-            'hideColumns' => ['id', 'product_no', 'Ustatus', 'borrower_id', 'amount', 'returned_amount', 'due', 'status', 'count_stock'],
+            'hideColumns' => ['id', 'Ustatus', 'borrower_id', 'amount', 'returned_amount', 'due', 'status', 'count_stock'],
             /* คอลัมน์ที่สามารถค้นหาได้ */
             'searchColumns' => ['borrow_no', 'borrower', 'product_no'],
             /* ตั้งค่าการกระทำของของตัวเลือกต่างๆ ด้านล่างตาราง ซึ่งจะใช้ร่วมกับการขีดถูกเลือกแถว */
@@ -63,6 +63,10 @@ class View extends \Gcms\View
                 'topic' => [
                     'text' => '{LNG_Equipment}',
                     'sort' => 'topic'
+                ],
+                'product_no' => [
+                    'text' => '{LNG_Serial/Registration No.}',
+                    'sort' => 'product_no'
                 ],
                 'stock' => [
                     'text' => '{LNG_Stock}',
@@ -167,8 +171,9 @@ class View extends \Gcms\View
      */
     public function onRow($item, $o, $prop)
     {
-        $item['borrow_no'] = '<a href="index.php?module=borrow-report&amp;status='.$item['status'].'&amp;search='.$item['borrow_no'].'">'.$item['borrow_no'].'</a>';
-        $item['topic'] = '<a href="index.php?module=borrow-report&amp;status='.$item['status'].'&amp;search='.$item['product_no'].'">'.$item['topic'].'</a>';
+        // $item['borrow_no'] = '<a href="index.php?module=borrow-report&amp;status='.$item['status'].'&amp;search='.$item['borrow_no'].'">'.$item['borrow_no'].'</a>';
+        // $item['topic'] = '<a href="index.php?module=borrow-report&amp;status='.$item['status'].'&amp;search='.$item['product_no'].'">'.$item['topic'].'</a>';
+        $item['product_no'] = '<a href="index.php?module=borrow-report&amp;status='.$item['status'].'&amp;search='.$item['product_no'].'">'.$item['product_no'].'</a>';
         $item['borrower'] = '<a href="index.php?module=borrow-report&amp;status='.$item['status'].'&amp;borrower_id='.$item['borrower_id'].'" class="status'.$item['Ustatus'].'">'.$item['borrower'].'</a>';
         $item['borrow_date'] = Date::format($item['borrow_date'], 'd M Y');
         $item['returned_date'] = Date::format($item['returned_date'], 'd M Y');
