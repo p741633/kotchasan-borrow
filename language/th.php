@@ -429,4 +429,10 @@ return array(
   'RETURN_STATUS' => array(
     3 => 'คืนแล้ว'
   ),
+  'e.g. 103320 (required)' => 'ตัวอย่าง 103320 (จำเป็น)',
+  'e.g. AZA2 (required)' => 'ตัวอย่าง AZA2 (จำเป็น)',
+  'e.g. John (required)' => 'ตัวอย่าง สมเกียรติ (จำเป็น)',
+  'e.g. Wick (required)' => 'ตัวอย่าง หงษ์วิไล (จำเป็น)',
+  'e.g. 8259 (required)' => 'ตัวอย่าง 8253 (จำเป็น)',
+  'e.g. Borrowing for remote work' => 'ตัวอย่าง ยืมเพื่อใช้ WFH',
 );
