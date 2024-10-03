@@ -102,6 +102,7 @@ class View extends \Gcms\View
             'placeholder' => '{LNG_e.g. AZA2 (required)}',
             'value' => $index->borrower_dept_id,
             'maxlength' => 4,
+            'minlength' => 4,
             'required' => true
         ]);
         $groups = $fieldset->add('groups');
@@ -129,7 +130,7 @@ class View extends \Gcms\View
         ]);
         $groups = $fieldset->add('groups');
         // borrower_phone
-        $groups->add('number', [
+        $groups->add('text', [
             'id' => 'borrower_phone',
             'labelClass' => 'g-input icon-phone',
             'itemClass' => 'width30',
@@ -137,6 +138,7 @@ class View extends \Gcms\View
             'placeholder' => '{LNG_e.g. 8259 (required)}',
             'value' => $index->borrower_phone,
             'maxlength' => 15,
+            'minlength' => 4,
             'required' => true
         ]);
         // borrower_remark
