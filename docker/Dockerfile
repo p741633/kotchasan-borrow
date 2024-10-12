@@ -52,3 +52,7 @@ RUN docker-php-ext-install intl
 
 # Install php extension :opcache
 RUN docker-php-ext-install opcache
+
+# This section is responsible for modifying the default ports used by the Apache server.
+COPY ./apache-config/ports.conf /etc/apache2/ports.conf
+COPY ./apache-config/000-default.conf /etc/apache2/sites-available/000-default.conf
