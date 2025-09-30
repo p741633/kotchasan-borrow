@@ -169,7 +169,8 @@ class View extends \Gcms\View
                 $item[$label] = $this->category->get($key, $item[$label]);
             }
         }
-        $item['inuse'] = '<a id=inuse_'.$item['id'].' class="icon-valid '.($item['inuse'] == 0 ? 'disabled' : 'access').'" title="'.$this->inventory_status[$item['inuse']].'"></a>';
+        // $item['inuse'] = '<a id=inuse_'.$item['id'].' class="icon-valid '.($item['inuse'] == 0 ? 'disabled' : 'access').'" title="'.$this->inventory_status[$item['inuse']].'"></a>';
+        $item['inuse'] = '<span id=inuse_'.$item['id'].' class="icon-valid '.($item['inuse'] == 0 ? 'disabled' : 'access').'" title="'.$this->inventory_status[$item['inuse']].'"></span>';
         $thumb = is_file(ROOT_PATH.DATA_FOLDER.'inventory/'.$item['id'].self::$cfg->stored_img_type) ? WEB_URL.DATA_FOLDER.'inventory/'.$item['id'].self::$cfg->stored_img_type : WEB_URL.'skin/img/noicon.png';
         $item['stock'] .= ' '.$item['unit'];
         $item['id'] = '<img src="'.$thumb.'" style="max-height:50px;max-width:50px" alt=thumbnail>';

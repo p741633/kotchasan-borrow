@@ -153,7 +153,7 @@ return array(
   'INVENTORY_CATEGORIES' => array(
     'category_id' => 'หมวดหมู่',
     'type_id' => 'ประเภท',
-    'model_id' => 'ยี่ห้อ'
+    'model_id' => 'แผนก'
   ),
   'INVENTORY_METAS' => array(
     'detail' => 'รายละเอียด'
@@ -204,7 +204,7 @@ return array(
   'Message' => 'ข้อความ',
   'Message displayed on login page' => 'ข้อความแสดงในหน้าเข้าสู่ระบบ',
   'Mobile Phone Verification' => 'ยืนยันหมายเลขโทรศัพท์',
-  'Model' => 'ยี่ห้อ',
+  'Model' => 'แผนก',
   'Module' => 'โมดูล',
   'Module settings' => 'ตั้งค่าโมดูล',
   'month' => 'เดือน',
